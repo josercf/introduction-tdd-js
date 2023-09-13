@@ -15,6 +15,19 @@
 
     <script>
       // A sua solução será escrita aqui!
+      function calcularIdade(dataNascimento){
+        let dataAtual = new Date(); 
+
+        let idade = dataAtual.getFullYear() - dataNascimento.getFullYear();
+
+        return idade;
+      }
+
+      function pessoaPossuiMaiorIdade(dataNascimento){
+        let idade = calcularIdade(dataNascimento);
+
+        return idade >= 18;
+      }
     </script>
 
     <script>
@@ -27,6 +40,44 @@
       test('Esse é como um teste falhando parece', (assert) => {
         const resultado = [1,2,3].indexOf(1)  // O valor de 'resultado' será 0 (zero)
         assert.equal(resultado, -1) // Nós esperamos que essa validação falhe
+      })
+
+
+      test('Esse é como um teste falhando parece', (assert) => {
+        const resultado = [1,2,3].indexOf(1)  // O valor de 'resultado' será 0 (zero)
+        assert.equal(resultado, -1); // Nós esperamos que essa validação falhe
+      })
+
+      test('[calcularIdade] - Idade deve ser 18', (assert) => {
+        let dataNascimento = new Date(2005, 0, 1);
+
+        let idade = calcularIdade(dataNascimento);
+
+        assert.equal(idade, 18);
+      })
+
+      test('[calcularIdade] - Idade não deve ser 18', (assert) => {
+        let dataNascimento = new Date(2007, 0, 1);
+
+        let idade = calcularIdade(dataNascimento);
+
+        assert.notEqual(idade, 18);
+      })
+
+      test('[pessoaPossuiMaiorIdade] - Deve retornar true', (assert) => {
+        let dataNascimento = new Date(2005, 0, 1);
+
+        let maiorIdade = pessoaPossuiMaiorIdade(dataNascimento);
+
+        assert.equal(true, maiorIdade);
+      })
+
+      test('[pessoaPossuiMaiorIdade] - Deve retornar false', (assert) => {
+        let dataNascimento = new Date(2007, 0, 1);
+
+        let maiorIdade = pessoaPossuiMaiorIdade(dataNascimento);
+
+        assert.equal(false, maiorIdade);
       })
     </script>
 
