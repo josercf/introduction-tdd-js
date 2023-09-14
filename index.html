@@ -49,7 +49,9 @@
       })
 
       test('[calcularIdade] - Idade deve ser 18', (assert) => {
-        let dataNascimento = new Date(2005, 0, 1);
+        let anoAtual = new Date().getFullYear() - 18;
+        
+        let dataNascimento = new Date(anoAtual, 0, 1);
 
         let idade = calcularIdade(dataNascimento);
 
@@ -57,7 +59,9 @@
       })
 
       test('[calcularIdade] - Idade não deve ser 18', (assert) => {
-        let dataNascimento = new Date(2007, 0, 1);
+        let anoAtual = new Date().getFullYear() - 17;
+        
+        let dataNascimento = new Date(anoAtual, 0, 1);
 
         let idade = calcularIdade(dataNascimento);
 
@@ -65,7 +69,9 @@
       })
 
       test('[pessoaPossuiMaiorIdade] - Deve retornar true', (assert) => {
-        let dataNascimento = new Date(2005, 0, 1);
+        let anoAtual = new Date().getFullYear() - 18;
+        
+        let dataNascimento = new Date(anoAtual, 0, 1);
 
         let maiorIdade = pessoaPossuiMaiorIdade(dataNascimento);
 
@@ -73,7 +79,9 @@
       })
 
       test('[pessoaPossuiMaiorIdade] - Deve retornar false', (assert) => {
-        let dataNascimento = new Date(2007, 0, 1);
+        let anoAtual = new Date().getFullYear() - 17;
+        
+        let dataNascimento = new Date(anoAtual, 0, 1);
 
         let maiorIdade = pessoaPossuiMaiorIdade(dataNascimento);
 
